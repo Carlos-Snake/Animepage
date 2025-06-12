@@ -1,0 +1,41 @@
+    <script src="animeid.js"></script>
+
+const paginas = [
+  ["+18", "0", "Acción", "Acción", "Animación", "Arte", "Artes Marciales", "Aventura"],
+  ["Bizarro", "Carreras", "Ciencia Ficción", "Colegialas", "Comedia", "Concert", "Cyberpunk"],
+  ["Demonios", "Deportes", "Drama", "Ecchi", "Escolares", "Fantasía", "Fantasia", "Fútbol"],
+  ["Game", "Gore", "Guerra", "Harem", "Histórico", "Histórico", "Horror", "Idol"],
+  ["Infantil", "Invi", "invier", "inviern", "invierno", "Invierno 2013", "Invierno 2014", "Invierno 2015"],
+  ["Ivierno 2016", "Ivierno 2017", "Ivierno 2019", "Ivierno 2020", "Ivierno 2021", "Ivierno 2022", "Ivierno 2023", "Ivierno 2024"],
+  ["Ivierno 2025", "Invierno-2018", "Josei", "Juegos", "Juegos De Mesa", "Kids", "Loli", "Lucha"],
+  ["Mafia", "Magia", "Mahou Shojo", "Mecha", "Militar", "Misterio", "Música", "oto"],
+  ["otoñ", "Otoño 2012", "Otoño 2013", "Otoño 2014", "Otoño 2015", "Otoño 2016", "Otoño 2018", "Otoño 2019",],
+  ["Otoño 2020", "Otoño 2021", "Otoño 2022", "Otoño 2023", "Otoño 2024", "otono-2017", "Pantsu", "Parodia"],
+  ["Policía", "Post Apocalitico", "prima", "Primavera 2024", "Primavera 2013", "Primavera 2014", "Primavera 2015", "Primavera 2016"],
+
+  // Agregá más páginas si querés
+];
+
+function cambiarPagina(indice) {
+  const contenedor = document.getElementById("contenido");
+  contenedor.innerHTML = ""; // Limpia el contenido actual
+
+  if (!paginas[indice]) return;
+
+  // Crear filas cada 7 elementos
+  const pagina=paginas[indice]
+  
+
+    const categorias=pagina.map(texto => {
+      const span = document.createElement("span");
+      span.className = "abcB";
+      span.innerHTML = `<a href="genero/${texto}">${texto}</a>`;
+      return span
+    });
+  contenedor.replaceChildren(...categorias)
+  // Marcar el botón activo
+  document.querySelectorAll(".click").forEach((dot, i) => {
+    dot.classList.toggle("active", i === indice);
+  });
+}
+
